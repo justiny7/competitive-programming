@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B. Balanced Array", "B. Balanced Array\B. Balanced Array.vcxproj", "{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Debug|x64.ActiveCfg = Debug|x64
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Debug|x64.Build.0 = Debug|x64
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Debug|x86.ActiveCfg = Debug|Win32
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Debug|x86.Build.0 = Debug|Win32
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Release|x64.ActiveCfg = Release|x64
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Release|x64.Build.0 = Release|x64
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Release|x86.ActiveCfg = Release|Win32
+		{3C2EE0EA-B41C-46AD-9772-8D0612B79EAB}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0A3854F-B0E1-48B9-B6BA-1D97B6429206}
+	EndGlobalSection
+EndGlobal

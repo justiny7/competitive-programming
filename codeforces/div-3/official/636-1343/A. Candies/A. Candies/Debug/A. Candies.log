@@ -1,0 +1,5 @@
+﻿  A. Candies.cpp
+C:\Justin\C++\Codeforces\Div. 3\Contest #636\A. Candies\A. Candies\A. Candies.cpp(15,56): warning C4244:  '=': conversion from 'double' to 'int', possible loss of data
+C:\Justin\C++\Codeforces\Div. 3\Contest #636\A. Candies\A. Candies\A. Candies.cpp(18,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Justin\C++\Codeforces\Div. 3\Contest #636\A. Candies\A. Candies\A. Candies.cpp(12,7): warning C4101:  'done': unreferenced local variable
+  A. Candies.vcxproj -> C:\Justin\C++\Codeforces\Div. 3\Contest #636\A. Candies\Debug\A. Candies.exe
