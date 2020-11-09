@@ -4,7 +4,7 @@ using namespace std;
 using ll=long long;
 
 const int mxN=2e5+1;
-ll n, a[mxN], bit[mxN], to[mxN];
+ll n, a[mxN], bit[mxN];
 vector<ll> sz;
 bool vis[mxN];
 
@@ -21,8 +21,8 @@ ll query(int i) {
 
 void dfs(int v) {
     vis[v]=1;
-    if (!vis[to[v]])
-        ++sz.back(), dfs(to[v]);
+    if (!vis[a[v]])
+        ++sz.back(), dfs(a[v]);
 }
 
 int main() {
@@ -36,8 +36,6 @@ int main() {
         upd(a[i], 1);
     }
     cout << c << " ";
-    for (int i=1; i<=n; ++i)
-        to[i]=a[i];
     for (int i=1; i<=n; ++i)
         if (!vis[i]) {
             sz.pb(1LL);
