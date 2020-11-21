@@ -5,10 +5,7 @@ LANG: C++11
 */
 
 #include <bits/stdc++.h>
-#define x first
-#define y second
 using namespace std;
-using pii=pair<int, int>;
 
 const int mxN=31, INF=0x3f3f3f3f, dx[]={1,2,2,1,-1,-2,-2,-1}, dy[]={2,1,-1,-2,-2,-1,1,2};
 int n, m, kx, ky, d_tot[mxN][mxN], pickup[mxN][mxN], d_cur[2][mxN][mxN];
