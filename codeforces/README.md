@@ -1,5 +1,5 @@
 # Codeforces
-Contest naming convention is [contest name]-[contest number]
+Contest naming convention is `[contest name]-[contest number]`
 
 `\` means solved in contest/virtual  
 `-` means hacked  
