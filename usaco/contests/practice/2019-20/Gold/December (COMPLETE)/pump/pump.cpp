@@ -30,8 +30,8 @@ vector<Edge> adj[mxN];
 priority_queue<node> pq;
 
 int main() {
-    ifstream cin("pump.in");
-    ofstream cout("pump.out");
+    //ifstream cin("pump.in");
+    //ofstream cout("pump.out");
     cin >> n >> m;
     while (m--) {
         ll a, b, c, d;
