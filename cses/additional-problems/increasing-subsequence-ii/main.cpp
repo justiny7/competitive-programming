@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll=long long;
 
 const int mxN=2e5+1, M=1e9+7;
 int ans, bit[mxN], a[mxN], b[mxN];
 
-void upd(int i, ll x) {
+void upd(int i, int x) {
     for (; i<mxN; i+=i&-i)
         bit[i]=(bit[i]+x)%M;
 }
