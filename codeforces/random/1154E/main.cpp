@@ -37,7 +37,6 @@ int main() {
             ans[j]=(f?'1':'2');
             cur.erase(j);
         }
-        cout << '\n';
         f^=1;
     }
     cout << ans << '\n';
