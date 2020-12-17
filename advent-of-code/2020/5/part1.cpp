@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    freopen("test.txt", "r", stdin);
+    string s;
+    int ans=0;
+    while (1) {
+        getline(cin, s);
+        if (s.empty())
+            break;
+        int lo=0, hi=127, cur;
+        for (int i=0; i<7; ++i) {
+            int m=lo+hi>>1;
+            if (s[i]=='B')
+                lo=m+1;
+            else
+                hi=m;
+        }
+        cur=lo*8, lo=0, hi=7;
+        for (int i=7; i<10; ++i) {
+            int m=lo+hi>>1;
+            if (s[i]=='R')
+                lo=m+1;
+            else
+                hi=m;
+        }
+        cur+=lo;
+        ans=max(ans, cur);
+    }
+    cout << ans << '\n';
+}
+

@@ -1,0 +1,2 @@
+Source for MD5 function:
+https://codereview.stackexchange.com/questions/163872/md5-implementation-in-c11
