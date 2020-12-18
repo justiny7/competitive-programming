@@ -22,13 +22,13 @@ int main() {
                         int c=0;
                         for (int dx=-1; dx<=1; ++dx)
                             for (int dy=-1; dy<=1; ++dy)
-                                    for (int dz=-1; dz<=1; ++dz)
-                                        for (int dl=-1; dl<=1; ++dl) {
-                                        if (!dx && !dy && !dz && !dl)
-                                            continue;
-                                        int nx=i+dx, ny=j+dy, nz=k+dz, nl=l+dl;
-                                        c+=mp[{nx, ny, nz, nl}];
-                                    }
+                                for (int dz=-1; dz<=1; ++dz)
+                                    for (int dl=-1; dl<=1; ++dl) {
+                                    if (!dx && !dy && !dz && !dl)
+                                        continue;
+                                    int nx=i+dx, ny=j+dy, nz=k+dz, nl=l+dl;
+                                    c+=mp[{nx, ny, nz, nl}];
+                                }
                         if (mp[{i, j, k, l}] && c^2 && c^3)
                             rem.push_back({i, j, k, l});
                         else if (!mp[{i, j, k, l}] && c==3)
