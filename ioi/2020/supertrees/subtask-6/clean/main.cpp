@@ -71,7 +71,7 @@ int construct(vvi p) {
         vis[d[2].find(i)]=1;
         vi v;
         for (int j=0; j<n; ++j)
-            if (d[2].same(i, j) && find(v.begin(), v.end(), j)==v.end())
+            if (d[2].same(i, j))
                 v.eb(j);
         int sz=v.size();
         if (sz==1)
