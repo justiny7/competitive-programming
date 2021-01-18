@@ -37,17 +37,20 @@ struct DSU {
 int construct(vvi p) {
     n=p.size();
     ans=vvi(n, vi(n));
-    DSU d[4];
+    DSU d[3];
     for (int i=0; i<n; ++i)
-        for (int j=0; j<n; ++j)
-            if (p[i][j] && p[i][j]^2)
-                d[p[i][j]].merge(i, j);
+        for (int j=0; j<n; ++j) {
+            if (p[i][j]==1)
+                d[1].merge(i, j);
+            else if (p[i][j]==3)
+                return 0;
+        }
     for (int i=0; i<n; ++i)
         for (int j=0; j<n; ++j) {
             if (p[i][j]==2)
                 d[2].merge(d[1].find(i), d[1].find(j));
             else if (!p[i][j]) {
-                for (int k=1; k<4; ++k)
+                for (int k=1; k<3; ++k)
                     if (d[k].same(i, j))
                         return 0;
             }
@@ -86,30 +89,7 @@ int construct(vvi p) {
         }
         ans[v[0]][v.back()]=ans[v.back()][v[0]]=1;
     }
-    vis=vb(n);
-    for (int i=0; i<n; ++i) {
-        if (vis[d[3].find(i)])
-            continue;
-        vis[d[3].find(i)]=1;
-        vi v;
-        bool f=1;
-        for (int j=0; j<n; ++j) {
-            if (d[3].same(i, j))
-                v.eb(j);
-            if (i^j)
-                f&=(p[i][j]==3 || !p[i][j]);
-        }
-        int sz=v.size();
-        if (sz==1)
-            continue;
-        if (f || sz^4)
-            return 0;
-        ans[v[0]][v[1]]=ans[v[1]][v[0]]=1;
-        ans[v[1]][v[2]]=ans[v[2]][v[1]]=1;
-        ans[v[2]][v[3]]=ans[v[3]][v[2]]=1;
-        ans[v[0]][v[3]]=ans[v[3]][v[0]]=1;
-        ans[v[0]][v[2]]=ans[v[2]][v[0]]=1;
-    }
     build(ans);
     return 1;
 }
+
