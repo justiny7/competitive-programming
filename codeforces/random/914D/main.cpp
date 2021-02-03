@@ -58,7 +58,7 @@ int main() {
         int t;
         cin >> t;
         if (t&1) {
-            int l, r, x, best;
+            int l, r, x;
             cin >> l >> r >> x;
             cout << (query(l-1, r-1, x)>1?"NO":"YES") << '\n';
         }
