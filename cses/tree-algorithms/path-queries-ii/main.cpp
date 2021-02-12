@@ -2,36 +2,33 @@
 using namespace std;
 
 const int mxN=2e5+1;
-int n, q, tt, a[mxN], head[mxN], dep[mxN], par[mxN], pos[mxN], t[mxN<<2];
+int n, q, tt, a[mxN], head[mxN], dep[mxN], par[mxN], pos[mxN], t[mxN<<1];
 vector<int> adj[mxN];
 
-void upd(int i, int x, int l=0, int r=n-1, int v=1) {
-    if (l==r) {
-        t[v]=x;
-        return;
-    }
-    int m=l+r>>1;
-    if (i<=m)
-        upd(i, x, l, m, v<<1);
-    else
-        upd(i, x, m+1, r, v<<1|1);
-    t[v]=max(t[v<<1], t[v<<1|1]);
+void build() {
+    for (int i=n-1; i; --i)
+        t[i]=max(t[i<<1], t[i<<1|1]);
 }
-int tquery(int l, int r, int lo=0, int hi=n-1, int v=1) {
-    if (l>hi || r<lo)
-        return 0;
-    if (lo>=l && hi<=r)
-        return t[v];
-    int m=lo+hi>>1;
-    return max(tquery(l, r, lo, m, v<<1), tquery(l, r, m+1, hi, v<<1|1));
+void upd(int i, int x) {
+    for (t[i+=n]=x; i>1; i>>=1)
+        t[i>>1]=max(t[i], t[i^1]);
+}
+int tquery(int l, int r) {
+    int ret=0;
+    for (l+=n, r+=n+1; l<r; l>>=1, r>>=1) {
+        if (l&1)
+            ret=max(ret, t[l++]);
+        if (r&1)
+            ret=max(ret, t[--r]);
+    }
+    return ret;
 }
 int dfs(int v=1) {
-    int sz=1, mx=0;
+    int sz=1, mx=0, c;
     for (int &u:adj[v]) {
         if (u^par[v]) {
             par[u]=v, dep[u]=dep[v]+1;
-            int c=dfs(u);
-            sz+=c;
+            sz+=(c=dfs(u));
             if (c>mx)
                 mx=c, swap(adj[v][0], u);
         }
@@ -70,7 +67,8 @@ int main() {
     }
     dfs(); dfs2();
     for (int i=1; i<=n; ++i)
-        upd(pos[i], a[i]);
+        t[pos[i]+n]=a[i];
+    build();
     while (q--) {
         int t, x, y;
         cin >> t >> x >> y;
