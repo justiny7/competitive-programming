@@ -32,7 +32,7 @@ pair<int, int> query(int x) {
         c+=cnt[cur];
         cur=nxt[cur];
     }
-    while(~id[cur+a[cur]]) {
+    while (~id[cur+a[cur]]) {
         cur+=a[cur];
         ++c;
     }
