@@ -1,24 +1,20 @@
 #include <bits/stdc++.h>
-#define fi first
-#define se second
-#define pb push_back
 using namespace std;
 using ll=long long;
-using pll=pair<ll, ll>;
 
-const int mxN=2510;
-ll n, m, dist[mxN];
-vector<pll> adj[mxN];
-vector<ll> radj[mxN];
+const int mxN=3e3+1;
+int n, m;
+ll dist[mxN];
+vector<pair<ll, ll>> adj[mxN];
+vector<int> radj[mxN];
 bool vis[mxN], vis2[mxN];
 
 void dfs(int v=1) {
     vis[v]=1;
-    for (pll u:adj[v])
-        if (!vis[u.fi])
-            dfs(u.fi);
+    for (auto [u, d]:adj[v])
+        if (!vis[u])
+            dfs(u);
 }
-
 void dfs2(int v=n) {
     vis2[v]=1;
     for (int u:radj[v])
@@ -27,28 +23,34 @@ void dfs2(int v=n) {
 }
 
 int main() {
+    memset(dist, 0xc0, sizeof(dist));
     cin.tie(0)->sync_with_stdio(0);
     cin >> n >> m;
     while (m--) {
-        int a, b, c;
+        int a, b; ll c;
         cin >> a >> b >> c;
-        adj[a].pb(pll(b, c));
-        radj[b].pb(a);
+        adj[a].emplace_back(b, c);
+        radj[b].push_back(a);
     }
     dfs(); dfs2();
-    memset(dist, -0x7f, sizeof(dist));
     dist[1]=0;
     for (int i=0; i<=n; ++i) {
-        bool has=0, reach=0;
-        for (int v=1; v<=n; ++v)
-            for (pll& p:adj[v])
-                if (dist[v]+p.se>dist[p.fi])
-                    reach|=(vis[p.fi] && vis2[p.fi]),
-                    has=1, dist[p.fi]=dist[v]+p.se;
-        if (!has)
+        bool relaxed=0, reachable=0;
+        for (int v=1; v<=n; ++v) {
+            for (auto [u, d]:adj[v]) {
+                if (dist[u]<dist[v]+d) {
+                    dist[u]=dist[v]+d;
+                    relaxed=1;
+                    reachable|=(vis[u] && vis2[u]);
+                }
+            }
+        }
+        if (!relaxed)
             break;
-        if (i==n && reach)
-            return cout << "-1\n", 0;
+        if (i==n && reachable) {
+            cout << "-1\n";
+            return 0;
+        }
     }
     cout << dist[n] << '\n';
 }
