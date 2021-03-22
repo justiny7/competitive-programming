@@ -14,7 +14,7 @@ bool merge(int a, int b) {
     if (sz[a] > sz[b])
         swap(a, b);
     par[a] = b;
-    sz[a] += sz[a];
+    sz[b] += sz[a];
     return 1;
 }
 
