@@ -3,9 +3,8 @@ using namespace std;
 
 const int N = 1e5 + 69;
 int n, m, a[N], cmp[N];
-map<int, int> mp;
 
-//{{{ PST
+//PST {{{
 const int SZ = 1e7 + 420;
 int node = 1, rt[N], t[SZ], lc[SZ], rc[SZ];
 
@@ -48,7 +47,6 @@ int main() {
     sort(cmp, cmp + n);
     for (int i = 0; i < n; ++i) {
         int pos = lower_bound(cmp, cmp + n, a[i]) - cmp;
-        mp[pos] = a[i];
         if (i > 0)
             rt[i] = rt[i - 1];
         upd(rt[i], pos);
@@ -56,6 +54,6 @@ int main() {
     while (m--) {
         int l, r, k;
         cin >> l >> r >> k, --l, --r;
-        cout << mp[query((l > 0 ? rt[l - 1] : 0), rt[r], k)] << '\n';
+        cout << cmp[query((l > 0 ? rt[l - 1] : 0), rt[r], k)] << '\n';
     }
 }
