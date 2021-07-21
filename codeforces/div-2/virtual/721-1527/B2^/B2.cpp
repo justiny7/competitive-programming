@@ -7,7 +7,7 @@ void solve() {
 
     int z = count(s.begin(), s.end(), '0');
 
-    int dif = 0, z_pair;
+    int dif = 0, z_pair = 0;
     for (int i = 0; i < n / 2; ++i) {
         dif += (s[i] != s[n - i - 1]);
         z_pair += (s[i] == '0' && s[n - i - 1] == '0');
@@ -16,7 +16,7 @@ void solve() {
     bool center = (n & 1) && (s[n / 2] == '0');
 
     if (dif) {
-        if ((z_pair - center) == 0 && dif == 1 && center)
+        if (z_pair == 0 && dif == 1 && center)
             cout << "DRAW\n";
         else
             cout << "ALICE\n";
