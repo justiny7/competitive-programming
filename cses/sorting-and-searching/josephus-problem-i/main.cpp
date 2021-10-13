@@ -18,7 +18,7 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         nxt[i] = i % n + 1;
         prv[i % n + 1] = i;
-	}
+    }
     
     int pos = 1;
     for (int t = n; t--; ) {
@@ -27,4 +27,3 @@ int main() {
         del(pos);
     }
 }
-
