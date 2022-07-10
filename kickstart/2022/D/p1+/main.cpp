@@ -25,9 +25,6 @@ void solve() {
     else
         res += (a[sz / 2] + a[sz / 2 - 1]) / 2;
 
-    if (n == m)
-        assert(res / 2 == accumulate(a.begin(), a.end(), 0));
-
     if (res & 1)
         cout << res / 2 << ".5\n";
     else
