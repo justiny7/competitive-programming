@@ -4,4 +4,5 @@
 *.swp
 in
 main
+.DS_Store
 
